@@ -210,5 +210,7 @@ class modStock extends DolibarrModules
 		    'UPDATE llx_product p SET p.stock= (SELECT SUM(ps.reel) FROM llx_product_stock ps WHERE ps.fk_product = p.rowid);'
 		);
 
+		$this->import_updatekeys_array[$r]=array('ps.fk_product'=>"Product",'ps.fk_entrepot'=>"Warehouse");
+
 	}
 }

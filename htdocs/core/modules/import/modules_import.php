@@ -696,5 +696,4 @@ class ModeleImports
 	}
 
 }
-}
 
