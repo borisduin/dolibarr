@@ -52,7 +52,7 @@ $price_by_qty_rowid = GETPOST('pbq', 'int');
 $finished = GETPOST('finished', 'int');
 $alsoproductwithnosupplierprice = GETPOST('alsoproductwithnosupplierprice', 'int');
 $warehouseStatus = GETPOST('warehousestatus', 'alpha');
-
+$hidepriceinlabel = (GETPOST('hidepriceinlabel', 'int') ? GETPOST('hidepriceinlabel', 'int') : 0);
 
 /*
  * View
@@ -187,7 +187,7 @@ else
 
 	$form = new Form($db);
 	if (empty($mode) || $mode == 1) {  // mode=1: customer
-		$arrayresult = $form->select_produits_list("", $htmlname, $type, $limit, $price_level, $searchkey, $status, $finished, $outjson, $socid, '1', 0, '', 0, $warehouseStatus);
+		$arrayresult = $form->select_produits_list("", $htmlname, $type, $limit, $price_level, $searchkey, $status, $finished, $outjson, $socid, '1', 0, '', $hidepriceinlabel, $warehouseStatus);
 	} elseif ($mode == 2) {            // mode=2: supplier
 		$arrayresult = $form->select_produits_fournisseurs_list($socid, "", $htmlname, $type, "", $searchkey, $status, $outjson, 0, $alsoproductwithnosupplierprice);
 	}
